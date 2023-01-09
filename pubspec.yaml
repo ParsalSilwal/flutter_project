@@ -38,6 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.5
   google_fonts:
+  banner_carousel: ^1.2.1
+  connectivity_plus: ^3.0.2
+  fluttertoast:
 dev_dependencies:
   flutter_test:
     sdk: flutter
