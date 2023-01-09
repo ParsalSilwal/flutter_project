@@ -15,6 +15,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool isVisible = true;
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool check = false;
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextFormField(
                   controller: passwordController,
-                  obscureText: true,
+                  obscureText: isVisible,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Password cant be empty";
@@ -79,6 +80,16 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     hintText: 'Enter Password',
                     labelText: 'Password',
+                    suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                    child: Icon(
+                      isVisible ? Icons.visibility : Icons.visibility_off,
+                    ),
+                  ),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                         borderSide: BorderSide(width: 2, color: Colors.blue)),
